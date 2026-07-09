@@ -1,0 +1,102 @@
+import { useState } from 'react'
+import './ContactForm.css'
+
+const PROJECT_TYPES = ['Corporate Photography', 'Event Coverage', 'Landscape / Fine Art', 'Other']
+
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
+const FORM_ACTION = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : null
+
+export default function ContactForm() {
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+
+    if (!FORM_ACTION) {
+      console.warn('[contact] VITE_FORMSPREE_ID is not set — see README.md for setup.')
+      setStatus('error')
+      return
+    }
+
+    const form = event.target
+    setStatus('submitting')
+
+    try {
+      const response = await fetch(FORM_ACTION, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="contact-form__message">
+        <h3>Thank you</h3>
+        <p className="text-muted">Your message has been sent. I'll get back to you soon.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <div className="contact-form__field">
+        <label className="label" htmlFor="name">
+          Name
+        </label>
+        <input id="name" name="name" type="text" required />
+      </div>
+
+      <div className="contact-form__field">
+        <label className="label" htmlFor="email">
+          Email
+        </label>
+        <input id="email" name="email" type="email" required />
+      </div>
+
+      <div className="contact-form__field">
+        <label className="label" htmlFor="projectType">
+          Project Type
+        </label>
+        <select id="projectType" name="projectType" defaultValue="">
+          <option value="" disabled>
+            Select a project type
+          </option>
+          {PROJECT_TYPES.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="contact-form__field">
+        <label className="label" htmlFor="message">
+          Message
+        </label>
+        <textarea id="message" name="message" rows={5} required />
+      </div>
+
+      <button type="submit" className="btn" disabled={status === 'submitting'}>
+        {status === 'submitting' ? 'Sending…' : 'Send Message ›'}
+      </button>
+
+      {status === 'error' && (
+        <p className="contact-form__error">
+          Something went wrong sending your message. Please email{' '}
+          <a href="mailto:sam@samgoodwin.co.nz">sam@samgoodwin.co.nz</a> directly instead.
+        </p>
+      )}
+    </form>
+  )
+}

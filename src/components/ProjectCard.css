@@ -1,0 +1,26 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-card__media {
+  overflow: hidden;
+  background: var(--color-bg-panel);
+  margin-bottom: 0.4rem;
+}
+
+.project-card__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.project-card:hover .project-card__media img {
+  transform: scale(1.04);
+}
+
+.project-card__title {
+  font-size: 1.5rem;
+}

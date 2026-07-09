@@ -1,0 +1,29 @@
+.portfolio-subtext {
+  max-width: 42em;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-size: 1.05rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.portfolio-footer-cta {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}

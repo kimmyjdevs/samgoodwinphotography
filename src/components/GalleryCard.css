@@ -1,0 +1,39 @@
+.gallery-card {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-panel);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-card__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--space-sm);
+  background: linear-gradient(to top, rgba(15, 13, 11, 0.9), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.gallery-card:hover .gallery-card__caption {
+  opacity: 1;
+}
+
+.gallery-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}

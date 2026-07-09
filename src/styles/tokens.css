@@ -1,0 +1,29 @@
+:root {
+  --color-bg: #0f0d0b;
+  --color-bg-panel: #161311;
+  --color-text: #f5f1ea;
+  --color-text-muted: #a59d95;
+  --color-accent: #e8a95c;
+  --color-border: #302d2a;
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --size-h1: clamp(2.75rem, 6vw, 3.75rem);
+  --size-h2: clamp(2.25rem, 4vw, 2.75rem);
+  --size-h3: 1.75rem;
+  --size-eyebrow: 0.75rem;
+
+  --tracking-wide: 0.18em;
+  --tracking-mid: 0.08em;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  --container-width: 1200px;
+
+  --transition-base: 220ms ease;
+}
