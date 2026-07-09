@@ -4,6 +4,7 @@ import { PROJECTS_QUERY } from '../lib/queries'
 import { fallbackProjects, projectCategories } from '../lib/fallbackContent'
 import FilterTabs from '../components/FilterTabs'
 import ProjectCard from '../components/ProjectCard'
+import SEO from '../components/SEO'
 import './Projects.css'
 
 const FILTER_OPTIONS = projectCategories.map((value) => ({
@@ -22,6 +23,10 @@ export default function Projects() {
 
   return (
     <div className="section">
+      <SEO
+        title="Projects"
+        description="A closer look at the stories, people and places behind the images."
+      />
       <div className="container">
         <span className="eyebrow">Projects</span>
         <h1>Recent Projects</h1>

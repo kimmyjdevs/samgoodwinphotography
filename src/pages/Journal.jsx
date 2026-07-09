@@ -2,6 +2,7 @@ import { useSanityData } from '../hooks/useSanityData'
 import { JOURNAL_POSTS_QUERY } from '../lib/queries'
 import { fallbackJournalPosts } from '../lib/fallbackContent'
 import JournalCard from '../components/JournalCard'
+import SEO from '../components/SEO'
 import './Journal.css'
 
 export default function Journal() {
@@ -9,6 +10,7 @@ export default function Journal() {
 
   return (
     <div className="section">
+      <SEO title="Journal" description="Field notes, reflections and stories from behind the lens." />
       <div className="container">
         <span className="eyebrow">Journal</span>
         <h1>Journal</h1>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useSanityData } from '../hooks/useSanityData'
 import { SITE_SETTINGS_QUERY } from '../lib/queries'
 import { fallbackSiteSettings } from '../lib/fallbackContent'
+import SEO from '../components/SEO'
 import './About.css'
 
 export default function About() {
@@ -9,6 +10,8 @@ export default function About() {
 
   return (
     <>
+      <SEO title="About" description={settings.aboutHeroIntro} />
+
       <section className="about-hero">
         <img className="about-hero__image" src={settings.aboutHeroImage?.asset?.url} alt="" />
         <div className="about-hero__scrim" />
@@ -22,7 +25,7 @@ export default function About() {
       <section className="section">
         <div className="container about-bio">
           <div className="about-bio__media">
-            <img src={settings.aboutPortraitImage?.asset?.url} alt="" loading="lazy" />
+            <img src={settings.aboutPortraitImage?.asset?.url} alt="Portrait of Sam Goodwin" loading="lazy" />
           </div>
           <div className="about-bio__content">
             <span className="label">{settings.aboutSectionLabel}</span>

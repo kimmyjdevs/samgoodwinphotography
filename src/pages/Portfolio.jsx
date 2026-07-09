@@ -5,6 +5,7 @@ import { PORTFOLIO_ITEMS_QUERY } from '../lib/queries'
 import { fallbackPortfolioItems, portfolioCategories } from '../lib/fallbackContent'
 import FilterTabs from '../components/FilterTabs'
 import GalleryCard from '../components/GalleryCard'
+import SEO from '../components/SEO'
 import './Portfolio.css'
 
 const FILTER_OPTIONS = portfolioCategories.map((value) => ({ value, label: value }))
@@ -20,6 +21,10 @@ export default function Portfolio() {
 
   return (
     <div className="section">
+      <SEO
+        title="Portfolio"
+        description="Exploring the beauty of the natural world. Moments of light, scale and perspective."
+      />
       <div className="container">
         <span className="eyebrow">Portfolio</span>
         <h1>Landscapes</h1>

@@ -2,6 +2,7 @@ import { useSanityData } from '../hooks/useSanityData'
 import { SITE_SETTINGS_QUERY } from '../lib/queries'
 import { fallbackSiteSettings } from '../lib/fallbackContent'
 import ContactForm from '../components/ContactForm'
+import SEO from '../components/SEO'
 import './Contact.css'
 
 export default function Contact() {
@@ -9,6 +10,10 @@ export default function Contact() {
 
   return (
     <div className="section">
+      <SEO
+        title="Contact"
+        description="Get in touch with Sam Goodwin for corporate, event and landscape photography across Australia and New Zealand."
+      />
       <div className="container contact-layout">
         <div>
           <span className="eyebrow">Contact</span>

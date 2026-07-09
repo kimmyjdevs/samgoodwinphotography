@@ -41,7 +41,7 @@ export default function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="contact-form__message">
+      <div className="contact-form__message" role="status">
         <h3>Thank you</h3>
         <p className="text-muted">Your message has been sent. I'll get back to you soon.</p>
       </div>
@@ -54,14 +54,14 @@ export default function ContactForm() {
         <label className="label" htmlFor="name">
           Name
         </label>
-        <input id="name" name="name" type="text" required />
+        <input id="name" name="name" type="text" autoComplete="name" required />
       </div>
 
       <div className="contact-form__field">
         <label className="label" htmlFor="email">
           Email
         </label>
-        <input id="email" name="email" type="email" required />
+        <input id="email" name="email" type="email" autoComplete="email" required />
       </div>
 
       <div className="contact-form__field">
@@ -92,7 +92,7 @@ export default function ContactForm() {
       </button>
 
       {status === 'error' && (
-        <p className="contact-form__error">
+        <p className="contact-form__error" role="alert">
           Something went wrong sending your message. Please email{' '}
           <a href="mailto:sam@samgoodwin.co.nz">sam@samgoodwin.co.nz</a> directly instead.
         </p>

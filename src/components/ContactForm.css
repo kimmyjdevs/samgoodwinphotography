@@ -21,10 +21,9 @@
   transition: border-color var(--transition-base);
 }
 
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  outline: none;
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible {
   border-color: var(--color-accent);
 }
 

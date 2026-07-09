@@ -2,13 +2,12 @@ import './FilterTabs.css'
 
 export default function FilterTabs({ options, active, onChange }) {
   return (
-    <div className="filter-tabs" role="tablist" aria-label="Filter">
+    <div className="filter-tabs" role="group" aria-label="Filter">
       {options.map((option) => (
         <button
           key={option.value}
           type="button"
-          role="tab"
-          aria-selected={active === option.value}
+          aria-pressed={active === option.value}
           className={'filter-tabs__tab label' + (active === option.value ? ' filter-tabs__tab--active' : '')}
           onClick={() => onChange(option.value)}
         >

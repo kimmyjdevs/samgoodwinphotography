@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useSanityData } from '../hooks/useSanityData'
 import { SITE_SETTINGS_QUERY } from '../lib/queries'
 import { fallbackSiteSettings, homepagePortfolioTeasers } from '../lib/fallbackContent'
+import SEO from '../components/SEO'
 import './Home.css'
 
 export default function Home() {
@@ -9,6 +10,8 @@ export default function Home() {
 
   return (
     <>
+      <SEO description="Editorial corporate, event and landscape photography by Sam Goodwin, based in Queensland, Australia, serving New Zealand." />
+
       <section className="hero">
         <img className="hero__image" src={settings.heroImage?.asset?.url} alt="" />
         <div className="hero__scrim" />
@@ -45,7 +48,7 @@ export default function Home() {
       <section className="section section--panel">
         <div className="container about-teaser">
           <div className="about-teaser__media">
-            <img src={settings.homepageAboutImage?.asset?.url} alt="" loading="lazy" />
+            <img src={settings.homepageAboutImage?.asset?.url} alt="Portrait of Sam Goodwin" loading="lazy" />
           </div>
           <div className="about-teaser__content">
             <h2>{settings.homepageAboutHeading}</h2>

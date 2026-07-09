@@ -3,6 +3,7 @@ import { PortableText } from '@portabletext/react'
 import { useSanityData } from '../hooks/useSanityData'
 import { JOURNAL_POST_BY_SLUG_QUERY } from '../lib/queries'
 import { fallbackJournalPosts } from '../lib/fallbackContent'
+import SEO from '../components/SEO'
 import './JournalPost.css'
 
 const DATE_LABEL = new Intl.DateTimeFormat('en-NZ', { month: 'short', year: 'numeric' })
@@ -15,6 +16,7 @@ export default function JournalPost() {
   if (!post) {
     return (
       <div className="section">
+        <SEO title="Post Not Found" />
         <div className="container">
           <h1>Post not found</h1>
           <Link to="/journal" className="link-arrow">
@@ -27,6 +29,7 @@ export default function JournalPost() {
 
   return (
     <div className="section">
+      <SEO title={post.title} description={post.excerpt} />
       <div className="container journal-post">
         <Link to="/journal" className="link-arrow journal-post__back">
           &larr; Back to Journal

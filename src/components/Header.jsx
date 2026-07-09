@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import './Header.css'
 
 const NAV_LINKS = [
@@ -10,13 +11,37 @@ const NAV_LINKS = [
 ]
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  // Close the mobile menu on navigation so it never gets left open after a link click.
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
+
   return (
     <header className="site-header">
       <div className="container site-header__inner">
         <NavLink to="/" className="site-header__logo">
           Sam Goodwin
         </NavLink>
-        <nav className="site-header__nav" aria-label="Primary">
+
+        <button
+          type="button"
+          className="site-header__toggle"
+          aria-expanded={menuOpen}
+          aria-controls="primary-nav"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className="visually-hidden">{menuOpen ? 'Close menu' : 'Open menu'}</span>
+          <span className={'site-header__toggle-icon' + (menuOpen ? ' site-header__toggle-icon--open' : '')} />
+        </button>
+
+        <nav
+          id="primary-nav"
+          className={'site-header__nav' + (menuOpen ? ' site-header__nav--open' : '')}
+          aria-label="Primary"
+        >
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}

@@ -65,7 +65,7 @@ export const homepagePortfolioTeasers = [
     category: 'landscapes',
     title: 'Landscapes',
     description: 'Nature. Perspective. Inspiration.',
-    image: img('1511578314322-379afb476865'),
+    image: img('1470071459604-3b5ec3a7fe05'),
   },
 ]
 

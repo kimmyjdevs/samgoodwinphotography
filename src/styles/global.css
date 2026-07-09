@@ -161,6 +161,35 @@ textarea {
   white-space: nowrap;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 100;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.75em 1.25em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
+
+/* Visible keyboard-focus ring on every interactive element. Browsers only
+   apply :focus-visible for keyboard/programmatic focus, not mouse clicks,
+   so this doesn't add a ring on every click the way `:focus` would. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 @media (max-width: 720px) {
   :root {
     --space-xl: 4.5rem;
