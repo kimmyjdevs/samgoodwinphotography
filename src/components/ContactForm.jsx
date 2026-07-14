@@ -3,8 +3,8 @@ import './ContactForm.css'
 
 const PROJECT_TYPES = ['Corporate Photography', 'Event Coverage', 'Landscape / Fine Art', 'Other']
 
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
-const FORM_ACTION = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : null
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
 
 export default function ContactForm() {
   const [status, setStatus] = useState('idle') // idle | submitting | success | error
@@ -12,8 +12,8 @@ export default function ContactForm() {
   async function handleSubmit(event) {
     event.preventDefault()
 
-    if (!FORM_ACTION) {
-      console.warn('[contact] VITE_FORMSPREE_ID is not set — see README.md for setup.')
+    if (!WEB3FORMS_KEY) {
+      console.warn('[contact] VITE_WEB3FORMS_KEY is not set — see README.md for setup.')
       setStatus('error')
       return
     }
@@ -21,14 +21,19 @@ export default function ContactForm() {
     const form = event.target
     setStatus('submitting')
 
+    const formData = new FormData(form)
+    formData.append('access_key', WEB3FORMS_KEY)
+    formData.append('subject', 'New enquiry from samgoodwin.co.nz')
+
     try {
-      const response = await fetch(FORM_ACTION, {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
         headers: { Accept: 'application/json' },
-        body: new FormData(form),
+        body: formData,
       })
+      const result = await response.json()
 
-      if (response.ok) {
+      if (response.ok && result.success) {
         setStatus('success')
         form.reset()
       } else {
@@ -50,6 +55,10 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      {/* Honeypot: real visitors never see or fill this in; Web3Forms silently
+          rejects the submission if it's non-empty. */}
+      <input type="checkbox" name="botcheck" className="visually-hidden" tabIndex={-1} autoComplete="off" />
+
       <div className="contact-form__field">
         <label className="label" htmlFor="name">
           Name

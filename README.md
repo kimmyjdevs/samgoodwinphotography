@@ -15,7 +15,7 @@ how this rebuild avoids repeating that.
   CSS custom properties in `src/styles/tokens.css`)
 - **CMS**: Sanity.io (`/studio`) — brand-new project, not the old one
 - **Fonts**: Cormorant Garamond (headings) + Jost (body/UI), via Google Fonts
-- **Forms**: Formspree
+- **Forms**: Web3Forms
 - **Hosting**: Cloudflare Pages + Cloudflare Web Analytics
 
 ## Design decision: graceful fallback
@@ -65,12 +65,15 @@ VITE_SANITY_DATASET=production
 Add content via `npm run dev` inside `/studio`, starting with the
 `siteSettings` singleton (pinned at the top of the document list).
 
-### 2. Formspree (contact form)
+### 2. Web3Forms (contact form)
 
-1. Sign up at formspree.io, create a form.
-2. Copy its form ID into `.env` as `VITE_FORMSPREE_ID`.
+1. Go to web3forms.com, enter the email address that should receive
+   submissions, and confirm it — no account/password needed.
+2. Copy the access key it emails you into `.env` as `VITE_WEB3FORMS_KEY`.
 3. Until this is set, the contact form shows an error state and points
    visitors to `sam@samgoodwin.co.nz` directly instead of failing silently.
+4. The form includes a honeypot field (`botcheck`) Web3Forms uses to
+   silently drop bot submissions — no action needed, it's already wired up.
 
 ### 3. Cloudflare Pages
 
@@ -79,7 +82,7 @@ Add content via `npm run dev` inside `/studio`, starting with the
    - Build command: `npm run build`
    - Build output directory: `dist`
 3. Add the same env vars from `.env` in the Pages project's environment
-   variables settings (Sanity + Formspree).
+   variables settings (Sanity + Web3Forms).
 4. `public/_redirects` is already set up for SPA routing (`/* /index.html 200`)
    so deep links like `/portfolio` work on refresh.
 5. Enable **Web Analytics** for the Pages project in the Cloudflare dashboard,
