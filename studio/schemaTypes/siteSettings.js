@@ -26,6 +26,30 @@ export default {
     { name: 'aboutCtaHeading', title: 'About CTA Heading', type: 'string' },
     { name: 'aboutCtaText', title: 'About CTA Text', type: 'text' },
 
+    {
+      name: 'awards',
+      title: 'Awards & Recognition',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'award',
+          fields: [
+            { name: 'title', title: 'Award Name', type: 'string' },
+            { name: 'category', title: 'Category', type: 'string' },
+            { name: 'year', title: 'Year', type: 'string' },
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'year' },
+          },
+        },
+      ],
+    },
+
+    { name: 'aboutSpecialties', title: 'Quick Facts: Specialties', type: 'string' },
+    { name: 'aboutEquipment', title: 'Quick Facts: Equipment', type: 'string' },
+    { name: 'aboutPublished', title: 'Quick Facts: Published / Featured', type: 'string' },
+
     { name: 'contactLocation', title: 'Contact Location', type: 'string' },
     { name: 'contactEmail', title: 'Contact Email', type: 'string' },
     { name: 'availableFor', title: 'Available For', type: 'string' },

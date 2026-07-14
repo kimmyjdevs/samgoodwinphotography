@@ -36,6 +36,16 @@ export const fallbackSiteSettings = {
   aboutCtaText:
     "Whether you're looking for corporate photography, event coverage or fine art imagery, I'd love to hear about your project.",
 
+  awards: [
+    { title: 'Photography Awards', category: 'Landscape Category', year: '2024' },
+    { title: 'Excellence Awards', category: 'Event Photography', year: '2023' },
+    { title: 'Regional Photography Awards', category: 'Commercial Category', year: '2022' },
+    { title: 'Photography Awards', category: 'Corporate Category', year: '2021' },
+  ],
+  aboutSpecialties: 'Corporate, Events, Landscape',
+  aboutEquipment: 'Professional Mirrorless System',
+  aboutPublished: 'Regional and national photography publications',
+
   contactLocation: 'Queensland, Australia',
   contactEmail: 'sam@samgoodwin.co.nz',
   availableFor: 'New Zealand',

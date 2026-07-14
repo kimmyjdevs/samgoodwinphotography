@@ -6,9 +6,8 @@
 }
 
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  columns: 3 300px;
+  column-gap: var(--space-md);
 }
 
 .portfolio-footer-cta {
@@ -18,12 +17,12 @@
 
 @media (max-width: 900px) {
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 2 240px;
   }
 }
 
 @media (max-width: 560px) {
   .portfolio-grid {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
 }

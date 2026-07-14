@@ -109,6 +109,29 @@ textarea {
   color: var(--color-text-muted);
 }
 
+.section-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-mid);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  position: relative;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
 .text-muted {
   color: var(--color-text-muted);
 }

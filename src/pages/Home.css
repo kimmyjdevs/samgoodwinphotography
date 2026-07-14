@@ -38,6 +38,16 @@
   margin-top: 0.5rem;
 }
 
+.hero__scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-md);
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+}
+
 .hero__cta {
   margin-top: var(--space-sm);
 }
@@ -71,6 +81,11 @@
 .teaser-card h3 {
   font-size: 1.75rem;
   margin-bottom: 0.4rem;
+}
+
+.teaser-card__explore {
+  display: block;
+  margin-top: 0.75rem;
 }
 
 .about-teaser {
