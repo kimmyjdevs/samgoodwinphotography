@@ -1,6 +1,25 @@
 import { useEffect, useState } from 'react'
 import { sanityClient, isSanityConfigured } from '../lib/sanityClient'
 
+function isPlainObject(value) {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+/**
+ * Fills in any null/missing keys on a fetched singleton document (e.g.
+ * siteSettings) with the matching fallback value, so a partially-filled
+ * Sanity document (real contact info, but no hero image yet) doesn't blank
+ * out the fields nobody's gotten around to setting.
+ */
+function mergeWithFallback(result, fallback) {
+  if (!isPlainObject(result) || !isPlainObject(fallback)) return result
+  const merged = { ...fallback }
+  for (const key of Object.keys(result)) {
+    if (result[key] != null) merged[key] = result[key]
+  }
+  return merged
+}
+
 /**
  * Fetches `query` (with optional `params`) from Sanity and falls back to
  * `fallback` if Sanity isn't configured, the request fails, or it resolves
@@ -26,7 +45,7 @@ export function useSanityData(query, fallback, params = {}) {
         if (cancelled) return
         const isEmpty = result == null || (Array.isArray(result) && result.length === 0)
         setState({
-          data: isEmpty ? fallback : result,
+          data: isEmpty ? fallback : mergeWithFallback(result, fallback),
           loading: false,
           isFallback: isEmpty,
         })
