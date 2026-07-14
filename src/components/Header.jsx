@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useSanityData } from '../hooks/useSanityData'
+import { SITE_SETTINGS_QUERY } from '../lib/queries'
+import { fallbackSiteSettings } from '../lib/fallbackContent'
+import { InstagramIcon, MailIcon } from './icons'
 import './Header.css'
 
 const NAV_LINKS = [
@@ -13,6 +17,7 @@ const NAV_LINKS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  const { data: settings } = useSanityData(SITE_SETTINGS_QUERY, fallbackSiteSettings)
 
   // Close the mobile menu on navigation so it never gets left open after a link click.
   useEffect(() => {
@@ -23,7 +28,8 @@ export default function Header() {
     <header className="site-header">
       <div className="container site-header__inner">
         <NavLink to="/" className="site-header__logo">
-          Sam Goodwin
+          <span className="site-header__logo-name">Sam Goodwin</span>
+          <span className="site-header__logo-sub">Photography</span>
         </NavLink>
 
         <button
@@ -54,6 +60,15 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
+
+        <div className="site-header__socials">
+          <a href={settings.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram">
+            <InstagramIcon width={18} height={18} />
+          </a>
+          <a href={`mailto:${settings.contactEmail}`} aria-label="Email">
+            <MailIcon width={18} height={18} />
+          </a>
+        </div>
       </div>
     </header>
   )

@@ -17,19 +17,13 @@ export default function Home() {
         <div className="hero__scrim" />
         <div className="container hero__content">
           <span className="eyebrow">{settings.heroEyebrow}</span>
-          <h1 className="hero__title">
-            {settings.heroTitle}
-            <br />
-            {settings.heroSubtitle}
-          </h1>
+          <h1 className="hero__title">{settings.heroTitle}</h1>
+          <span className="hero__subtitle">{settings.heroSubtitle}</span>
           <p className="hero__tagline">{settings.heroTagline}</p>
           <Link to="/portfolio" className="btn hero__cta">
             View Portfolio &rsaquo;
           </Link>
         </div>
-        <svg className="hero__scroll-cue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-          <path d="M12 4v15M6 13l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
       </section>
 
       <section className="section">

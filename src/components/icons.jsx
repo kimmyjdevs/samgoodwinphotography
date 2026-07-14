@@ -57,3 +57,22 @@ export function StarIcon(props) {
     </svg>
   )
 }
+
+export function InstagramIcon(props) {
+  return (
+    <svg {...BASE_PROPS} {...props}>
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4.5" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+export function MailIcon(props) {
+  return (
+    <svg {...BASE_PROPS} {...props}>
+      <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+      <path d="m3.5 6 8.5 7 8.5-7" />
+    </svg>
+  )
+}

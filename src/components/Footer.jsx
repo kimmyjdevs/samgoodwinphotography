@@ -1,6 +1,7 @@
 import { useSanityData } from '../hooks/useSanityData'
 import { SITE_SETTINGS_QUERY } from '../lib/queries'
 import { fallbackSiteSettings } from '../lib/fallbackContent'
+import { InstagramIcon } from './icons'
 import './Footer.css'
 
 export default function Footer() {
@@ -16,11 +17,7 @@ export default function Footer() {
           aria-label="Instagram"
           className="site-footer__icon"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <circle cx="12" cy="12" r="4.5" />
-            <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-          </svg>
+          <InstagramIcon width={20} height={20} />
         </a>
         <a href={`mailto:${settings.contactEmail}`} className="label site-footer__link">
           {settings.contactEmail}
