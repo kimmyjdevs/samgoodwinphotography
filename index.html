@@ -17,22 +17,26 @@
       rel="stylesheet"
     />
 
-    <!--
-      Cloudflare Web Analytics
-      After connecting this project to Cloudflare Pages, enable Web Analytics for the
-      project in the Cloudflare dashboard and paste the generated snippet's token below.
-      See README.md "Deployment" section for details.
-    -->
-    <!--
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "YOUR_CLOUDFLARE_BEACON_TOKEN"}'
-    ></script>
-    -->
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Static form for Netlify's build-time form-detection bot. It scans the
+      raw deployed HTML (not client-rendered content) for a form with the
+      `netlify` attribute to learn the field schema — this one is never
+      shown to visitors. The real, visible form is the React one in
+      src/components/ContactForm.jsx, which posts to "/" with a matching
+      form-name so Netlify treats the submission as belonging to this form.
+    -->
+    <form name="contact" netlify netlify-honeypot="botcheck" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="projectType" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="botcheck" />
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

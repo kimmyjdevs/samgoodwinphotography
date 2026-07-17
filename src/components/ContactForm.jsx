@@ -3,8 +3,11 @@ import './ContactForm.css'
 
 const PROJECT_TYPES = ['Corporate Photography', 'Event Coverage', 'Landscape / Fine Art', 'Other']
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
+function encodeFormData(data) {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&')
+}
 
 export default function ContactForm() {
   const [status, setStatus] = useState('idle') // idle | submitting | success | error
@@ -12,28 +15,20 @@ export default function ContactForm() {
   async function handleSubmit(event) {
     event.preventDefault()
 
-    if (!WEB3FORMS_KEY) {
-      console.warn('[contact] VITE_WEB3FORMS_KEY is not set — see README.md for setup.')
-      setStatus('error')
-      return
-    }
-
     const form = event.target
     setStatus('submitting')
 
-    const formData = new FormData(form)
-    formData.append('access_key', WEB3FORMS_KEY)
-    formData.append('subject', 'New enquiry from samgoodwin.co.nz')
+    const data = Object.fromEntries(new FormData(form).entries())
+    data['form-name'] = 'contact'
 
     try {
-      const response = await fetch(WEB3FORMS_ENDPOINT, {
+      const response = await fetch('/', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeFormData(data),
       })
-      const result = await response.json()
 
-      if (response.ok && result.success) {
+      if (response.ok) {
         setStatus('success')
         form.reset()
       } else {
@@ -54,8 +49,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
-      {/* Honeypot: real visitors never see or fill this in; Web3Forms silently
+    <form className="contact-form" name="contact" data-netlify="true" netlify-honeypot="botcheck" onSubmit={handleSubmit}>
+      <input type="hidden" name="form-name" value="contact" />
+
+      {/* Honeypot: real visitors never see or fill this in; Netlify silently
           rejects the submission if it's non-empty. */}
       <input type="checkbox" name="botcheck" className="visually-hidden" tabIndex={-1} autoComplete="off" />
 
