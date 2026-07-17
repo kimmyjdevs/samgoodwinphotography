@@ -8,6 +8,14 @@ function img(id, width = 1600) {
   return { asset: { url: `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80` } }
 }
 
+// Real photography bundled with the site itself (public/images/), used as a
+// stopgap ahead of the same shots being uploaded into Sanity. Once a real
+// Sanity document exists for a given field, it takes over automatically —
+// same fallback mechanism as everything else here.
+function localImg(path) {
+  return { asset: { url: path } }
+}
+
 export const fallbackSiteSettings = {
   heroEyebrow: 'Corporate · Events · Landscapes',
   heroTitle: 'Sam Goodwin',
@@ -24,7 +32,7 @@ export const fallbackSiteSettings = {
   aboutHeroIntro:
     'Award-winning photographer specialising in corporate, event and landscape photography across Australia and New Zealand.',
   aboutHeroImage: img('1506905925346-21bda4d32df4', 2000),
-  aboutPortraitImage: img('1573497019940-1c28c88b4f3e'),
+  aboutPortraitImage: localImg('/images/about/portrait.jpg'),
   aboutQuoteImage: img('1454496522488-7a8e488e8606'),
   aboutCtaImage: img('1441716844725-09cedc13a4e7', 2000),
   aboutSectionLabel: 'About Sam',
@@ -89,7 +97,7 @@ export const fallbackPortfolioItems = [
   { _id: 'p5', title: 'Ridgeline at Dawn', category: 'mountains', order: 5, image: img('1544198365-f5d60b6d8190') },
   { _id: 'p6', title: 'Snowfield Traverse', category: 'mountains', order: 6, image: img('1486870591958-9b9d0d1dda99') },
   { _id: 'p7', title: 'Castlepoint Coast', category: 'coastal', order: 7, image: img('1507525428034-b723cf961d3e') },
-  { _id: 'p8', title: 'Tidal Reef', category: 'coastal', order: 8, image: img('1519046904884-53103b34b206') },
+  { _id: 'p8', title: 'Sunrise Reef', category: 'coastal', order: 8, image: localImg('/images/portfolio/coastal-sunrise.jpg') },
   { _id: 'p9', title: 'Ancient Forest Floor', category: 'wilderness', order: 9, image: img('1441974231531-c6227db76b6e') },
   { _id: 'p10', title: 'Backcountry Lake', category: 'wilderness', order: 10, image: img('1476514525535-07fb3b4ae5f1') },
   { _id: 'p11', title: 'Canopy From Above', category: 'aerial', order: 11, image: img('1473773508845-188df298d2d1') },
@@ -98,9 +106,67 @@ export const fallbackPortfolioItems = [
 
 export const projectCategories = ['all', 'corporate', 'events', 'landscapes', 'branding']
 
-// The reference site's Projects section was unpopulated — the template is
-// ready to receive content, but there's nothing fake to show in the meantime.
-export const fallbackProjects = []
+export const fallbackProjects = [
+  {
+    _id: 'pr1',
+    title: 'tinyTATTS Co. Branding',
+    category: 'branding',
+    description: "Lifestyle and product photography for a tattoo studio's brand refresh.",
+    coverImage: localImg('/images/projects/tinytatts-cover.jpg'),
+    gallery: [
+      localImg('/images/projects/tinytatts-1.jpg'),
+      localImg('/images/projects/tinytatts-2.jpg'),
+      localImg('/images/projects/tinytatts-3.jpg'),
+      localImg('/images/projects/tinytatts-4.jpg'),
+      localImg('/images/projects/tinytatts-5.jpg'),
+    ],
+  },
+  {
+    _id: 'pr2',
+    title: 'Festival & Live Music',
+    category: 'events',
+    description: 'Coverage across a festival season — stages, crowds and the moments between sets.',
+    coverImage: localImg('/images/projects/festival-cover.jpg'),
+    gallery: [
+      localImg('/images/projects/festival-1.jpg'),
+      localImg('/images/projects/festival-2.jpg'),
+      localImg('/images/projects/festival-3.jpg'),
+      localImg('/images/projects/festival-4.jpg'),
+      localImg('/images/projects/festival-5.jpg'),
+      localImg('/images/projects/festival-6.jpg'),
+      localImg('/images/projects/festival-7.jpg'),
+      localImg('/images/projects/festival-8.jpg'),
+    ],
+  },
+  {
+    _id: 'pr3',
+    title: 'Studio Fitness Portraits',
+    category: 'corporate',
+    description: 'Clean studio portraiture for an athletic apparel campaign.',
+    coverImage: localImg('/images/projects/fitness-cover.jpg'),
+    gallery: [localImg('/images/projects/fitness-1.jpg'), localImg('/images/projects/fitness-2.jpg')],
+  },
+  {
+    _id: 'pr4',
+    title: 'A Forest Wedding',
+    category: 'events',
+    description: 'An intimate ceremony on a boardwalk through the rainforest.',
+    coverImage: localImg('/images/projects/wedding-cover.jpg'),
+    gallery: [localImg('/images/projects/wedding-1.jpg'), localImg('/images/projects/wedding-2.jpg')],
+  },
+  {
+    _id: 'pr5',
+    title: 'Editorial: Wild & Free',
+    category: 'landscapes',
+    description: 'A styled editorial shoot pairing fashion with open landscape.',
+    coverImage: localImg('/images/projects/editorial-cover.jpg'),
+    gallery: [
+      localImg('/images/projects/editorial-1.jpg'),
+      localImg('/images/projects/editorial-2.jpg'),
+      localImg('/images/projects/editorial-3.jpg'),
+    ],
+  },
+]
 
 export const fallbackJournalPosts = [
   {
