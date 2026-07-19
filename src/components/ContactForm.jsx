@@ -53,8 +53,18 @@ export default function ContactForm() {
       <input type="hidden" name="form-name" value="contact" />
 
       {/* Honeypot: real visitors never see or fill this in; Netlify silently
-          rejects the submission if it's non-empty. */}
-      <input type="checkbox" name="botcheck" className="visually-hidden" tabIndex={-1} autoComplete="off" />
+          rejects the submission if it's non-empty. Must be a text input, not
+          a checkbox — unchecked checkboxes are omitted from FormData
+          entirely, which made every submission look bot-like and get
+          silently dropped. */}
+      <input
+        type="text"
+        name="botcheck"
+        className="visually-hidden"
+        tabIndex={-1}
+        autoComplete="off"
+        defaultValue=""
+      />
 
       <div className="contact-form__field">
         <label className="label" htmlFor="name">
