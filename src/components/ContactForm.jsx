@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './ContactForm.css'
 
-const PROJECT_TYPES = ['Corporate Photography', 'Event Coverage', 'Landscape / Fine Art', 'Other']
+const PROJECT_TYPES = ['Landscape / Seascape', 'Astro Photography', 'Event Coverage', 'Branding / Commercial', 'Other']
 
 function encodeFormData(data) {
   return Object.keys(data)

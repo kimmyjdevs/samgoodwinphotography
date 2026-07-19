@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO description="Editorial corporate, event and landscape photography by Sam Goodwin, based in Queensland, Australia, serving New Zealand." />
+      <SEO description="Landscape, seascape, astro, event and branding photography by Sam Goodwin, based in Christchurch, New Zealand." />
 
       <section className="hero">
         <img className="hero__image" src={settings.heroImage?.asset?.url} alt="" />

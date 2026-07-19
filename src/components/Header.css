@@ -17,24 +17,14 @@
 
 .site-header__logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1.2;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.site-header__logo-name {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.site-header__logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--color-text-muted);
+.site-header__logo img {
+  height: 42px;
+  width: auto;
+  display: block;
 }
 
 .site-header__nav {
@@ -116,6 +106,10 @@
 }
 
 @media (max-width: 720px) {
+  .site-header__logo img {
+    height: 32px;
+  }
+
   .site-header__toggle {
     display: block;
   }

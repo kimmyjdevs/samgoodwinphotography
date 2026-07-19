@@ -17,7 +17,7 @@ function localImg(path) {
 }
 
 export const fallbackSiteSettings = {
-  heroEyebrow: 'Corporate · Events · Landscapes',
+  heroEyebrow: 'Landscape · Seascape · Astro · Events',
   heroTitle: 'Sam Goodwin',
   heroSubtitle: 'Photography',
   heroTagline: 'Capturing moments. Telling stories.',
@@ -25,34 +25,34 @@ export const fallbackSiteSettings = {
 
   homepageAboutHeading: 'Stories Are Everywhere',
   homepageAboutText:
-    "Photography has always been more than capturing a moment for me — it's about creating images that make people feel something. Today I work with businesses, organisations and individuals who value high-quality photography.",
+    'Sam Goodwin is a freelance photographer specialising in landscape, seascape, astro, event and branding photography — capturing emotionally driven imagery inspired by nature, nightlife and atmosphere.',
   homepageAboutImage: img('1573497019940-1c28c88b4f3e'),
 
   aboutHeroHeading: 'Stories Are Everywhere',
   aboutHeroIntro:
-    'Award-winning photographer specialising in corporate, event and landscape photography across Australia and New Zealand.',
+    'Freelance photographer specialising in landscape, seascape, astro, event and branding photography — capturing emotionally driven imagery inspired by nature, nightlife and atmosphere.',
   aboutHeroImage: img('1506905925346-21bda4d32df4', 2000),
   aboutPortraitImage: localImg('/images/about/portrait.jpg'),
   aboutQuoteImage: img('1454496522488-7a8e488e8606'),
   aboutCtaImage: img('1441716844725-09cedc13a4e7', 2000),
   aboutSectionLabel: 'About Sam',
   aboutBio:
-    "Photography has always been more than capturing a moment for me — it's about creating images that make people feel something. Over the years I've had the opportunity to photograph corporate events, business leaders, landscapes and communities across Australia. Whether I'm documenting a major event, creating professional headshots, or standing on a mountain before sunrise, my goal remains the same. Today I work with businesses, organisations and individuals who value high-quality photography.",
+    "Sam Goodwin is a freelance photographer and creative originally from Aotearoa, now based in Christchurch. Through Sgoodwin Photography, he specialises in landscape, seascape, astro, event, and branding photography, capturing emotionally driven imagery inspired by nature, nightlife, and atmosphere.\nHis work has been recognised through Australasia's Top Emerging Photographers Awards (2023 & 2024), The Landscape Awards (2025), and multiple publications including Art/Edit+ Interior Design Magazine.",
   aboutQuote:
     'Every image starts with a story. My role is to find it, capture it, and present it in a way that feels authentic and memorable.',
   aboutCtaHeading: "Let's Create Something Exceptional",
   aboutCtaText:
-    "Whether you're looking for corporate photography, event coverage or fine art imagery, I'd love to hear about your project.",
+    "Whether you're looking for landscape, event or branding photography, I'd love to hear about your project.",
 
   awards: [
-    { title: 'Photography Awards', category: 'Landscape Category', year: '2024' },
-    { title: 'Excellence Awards', category: 'Event Photography', year: '2023' },
-    { title: 'Regional Photography Awards', category: 'Commercial Category', year: '2022' },
-    { title: 'Photography Awards', category: 'Corporate Category', year: '2021' },
+    { title: 'Art/Edit+ Interior Design Magazine', category: 'Publication — Byron Bay Lighthouse', year: '2024' },
+    { title: 'Top 10 Landscape Photographers', category: 'Publication — Sunshine Coast Photo Sessions', year: '2024–2025' },
+    { title: 'The Landscape Awards', category: 'Highly Commended — Seascape', year: '2025' },
+    { title: "Australasia's Top Emerging Photographers", category: 'Commended — Landscape', year: '2023–2024' },
   ],
-  aboutSpecialties: 'Corporate, Events, Landscape',
+  aboutSpecialties: 'Landscape, Seascape, Astro, Events, Branding',
   aboutEquipment: 'Professional Mirrorless System',
-  aboutPublished: 'Regional and national photography publications',
+  aboutPublished: 'Art/Edit+ Interior Design Magazine, Sunshine Coast Photo Sessions',
 
   contactLocation: 'Queensland, Australia',
   contactEmail: 'sam@samgoodwin.co.nz',

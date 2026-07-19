@@ -12,7 +12,7 @@ export default function Contact() {
     <div className="section">
       <SEO
         title="Contact"
-        description="Get in touch with Sam Goodwin for corporate, event and landscape photography across Australia and New Zealand."
+        description="Get in touch with Sam Goodwin for landscape, seascape, astro, event and branding photography."
       />
       <div className="container contact-layout">
         <div>

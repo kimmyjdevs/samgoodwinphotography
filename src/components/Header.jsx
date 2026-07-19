@@ -28,8 +28,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container site-header__inner">
         <NavLink to="/" className="site-header__logo">
-          <span className="site-header__logo-name">Sam Goodwin</span>
-          <span className="site-header__logo-sub">Photography</span>
+          <img src="/images/logo/logo-white.png" alt="Sam Goodwin Photography" />
         </NavLink>
 
         <button
