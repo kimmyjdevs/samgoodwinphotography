@@ -37,16 +37,6 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
 }
 `
 
-export const PORTFOLIO_ITEMS_QUERY = /* groq */ `
-*[_type == "portfolioItem"] | order(order asc){
-  _id,
-  title,
-  category,
-  order,
-  image{${IMAGE_PROJECTION}}
-}
-`
-
 export const PROJECTS_QUERY = /* groq */ `
 *[_type == "project"] | order(_createdAt desc){
   _id,

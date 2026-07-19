@@ -87,23 +87,6 @@ export const homepagePortfolioTeasers = [
   },
 ]
 
-export const portfolioCategories = ['all', 'landscapes', 'mountains', 'coastal', 'wilderness', 'aerial']
-
-export const fallbackPortfolioItems = [
-  { _id: 'p1', title: 'First Light, Alpine Ridge', category: 'landscapes', order: 1, image: img('1506744038136-46273834b3fb') },
-  { _id: 'p2', title: 'Valley Mist', category: 'landscapes', order: 2, image: img('1470252649378-9c29740c9fa8') },
-  { _id: 'p3', title: 'Golden Hour Fields', category: 'landscapes', order: 3, image: img('1520962880247-cfaf541c8724') },
-  { _id: 'p4', title: 'Southern Alps', category: 'mountains', order: 4, image: img('1500534623283-312aade485b7') },
-  { _id: 'p5', title: 'Ridgeline at Dawn', category: 'mountains', order: 5, image: img('1544198365-f5d60b6d8190') },
-  { _id: 'p6', title: 'Snowfield Traverse', category: 'mountains', order: 6, image: img('1486870591958-9b9d0d1dda99') },
-  { _id: 'p7', title: 'Castlepoint Coast', category: 'coastal', order: 7, image: img('1507525428034-b723cf961d3e') },
-  { _id: 'p8', title: 'Sunrise Reef', category: 'coastal', order: 8, image: localImg('/images/portfolio/coastal-sunrise.jpg') },
-  { _id: 'p9', title: 'Ancient Forest Floor', category: 'wilderness', order: 9, image: img('1441974231531-c6227db76b6e') },
-  { _id: 'p10', title: 'Backcountry Lake', category: 'wilderness', order: 10, image: img('1476514525535-07fb3b4ae5f1') },
-  { _id: 'p11', title: 'Canopy From Above', category: 'aerial', order: 11, image: img('1473773508845-188df298d2d1') },
-  { _id: 'p12', title: 'Coastline From Above', category: 'aerial', order: 12, image: img('1501594907352-04cda38ebc29') },
-]
-
 export const projectCategories = ['all', 'corporate', 'events', 'landscapes', 'branding', 'lifestyle']
 
 export const fallbackProjects = [
@@ -183,6 +166,13 @@ export const fallbackProjects = [
       localImg('/images/projects/lifestyle-2.jpg'),
       localImg('/images/projects/lifestyle-3.jpg'),
     ],
+  },
+  {
+    _id: 'pr7',
+    title: 'Sunrise Reef',
+    category: 'landscapes',
+    description: 'A quiet coastal sunrise, caught between the tide and the rocks.',
+    coverImage: localImg('/images/portfolio/coastal-sunrise.jpg'),
   },
 ]
 

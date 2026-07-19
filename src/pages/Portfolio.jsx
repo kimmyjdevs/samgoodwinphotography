@@ -1,44 +1,51 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSanityData } from '../hooks/useSanityData'
-import { PORTFOLIO_ITEMS_QUERY } from '../lib/queries'
-import { fallbackPortfolioItems, portfolioCategories } from '../lib/fallbackContent'
+import { PROJECTS_QUERY } from '../lib/queries'
+import { fallbackProjects, projectCategories } from '../lib/fallbackContent'
 import FilterTabs from '../components/FilterTabs'
-import GalleryCard from '../components/GalleryCard'
+import ProjectCard from '../components/ProjectCard'
 import SEO from '../components/SEO'
 import './Portfolio.css'
 
-const FILTER_OPTIONS = portfolioCategories.map((value) => ({ value, label: value }))
+const FILTER_OPTIONS = projectCategories.map((value) => ({
+  value,
+  label: value === 'all' ? 'all' : value,
+}))
 
 export default function Portfolio() {
-  const { data: items } = useSanityData(PORTFOLIO_ITEMS_QUERY, fallbackPortfolioItems)
-  const [active, setActive] = useState('landscapes')
+  const { data: projects } = useSanityData(PROJECTS_QUERY, fallbackProjects)
+  const [active, setActive] = useState('all')
 
   const filtered = useMemo(
-    () => (active === 'all' ? items : items.filter((item) => item.category === active)),
-    [items, active],
+    () => (active === 'all' ? projects : projects.filter((project) => project.category === active)),
+    [projects, active],
   )
 
   return (
     <div className="section">
       <SEO
         title="Portfolio"
-        description="Exploring the beauty of the natural world. Moments of light, scale and perspective."
+        description="A closer look at the stories, people and places behind the images."
       />
       <div className="container">
         <span className="eyebrow">Portfolio</span>
-        <h1>Landscapes</h1>
+        <h1>Selected Work</h1>
         <p className="portfolio-subtext text-muted">
-          Exploring the beauty of the natural world. Moments of light, scale and perspective.
+          A closer look at the stories, people and places behind the images.
         </p>
 
         <FilterTabs options={FILTER_OPTIONS} active={active} onChange={setActive} />
 
-        <div className="portfolio-grid">
-          {filtered.map((item) => (
-            <GalleryCard key={item._id} item={item} />
-          ))}
-        </div>
+        {filtered.length === 0 ? (
+          <p className="portfolio-empty text-muted">More work is on its way — check back soon.</p>
+        ) : (
+          <div className="portfolio-grid">
+            {filtered.map((project) => (
+              <ProjectCard key={project._id} project={project} />
+            ))}
+          </div>
+        )}
 
         <div className="portfolio-footer-cta">
           <Link to="/contact" className="link-arrow">
