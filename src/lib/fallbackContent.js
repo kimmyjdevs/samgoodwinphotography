@@ -4,10 +4,6 @@
 // customised". Swap real photography in via the Studio and this module simply
 // stops being used for that field.
 
-function img(id, width = 1600) {
-  return { asset: { url: `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=80` } }
-}
-
 // Real photography bundled with the site itself (public/images/), used as a
 // stopgap ahead of the same shots being uploaded into Sanity. Once a real
 // Sanity document exists for a given field, it takes over automatically —
@@ -21,20 +17,20 @@ export const fallbackSiteSettings = {
   heroTitle: 'Sam Goodwin',
   heroSubtitle: 'Photography',
   heroTagline: 'Capturing moments. Telling stories.',
-  heroImage: img('1470071459604-3b5ec3a7fe05', 2000),
+  heroImage: localImg('/images/about/portrait.jpg'),
 
   homepageAboutHeading: 'Stories Are Everywhere',
   homepageAboutText:
     'Sam Goodwin is a freelance photographer specialising in landscape, seascape, astro, event and branding photography — capturing emotionally driven imagery inspired by nature, nightlife and atmosphere.',
-  homepageAboutImage: img('1573497019940-1c28c88b4f3e'),
+  homepageAboutImage: localImg('/images/about/portrait.jpg'),
 
   aboutHeroHeading: 'Stories Are Everywhere',
   aboutHeroIntro:
     'Freelance photographer specialising in landscape, seascape, astro, event and branding photography — capturing emotionally driven imagery inspired by nature, nightlife and atmosphere.',
-  aboutHeroImage: img('1506905925346-21bda4d32df4', 2000),
+  aboutHeroImage: localImg('/images/portfolio/coastal-sunrise.jpg'),
   aboutPortraitImage: localImg('/images/about/portrait.jpg'),
-  aboutQuoteImage: img('1454496522488-7a8e488e8606'),
-  aboutCtaImage: img('1441716844725-09cedc13a4e7', 2000),
+  aboutQuoteImage: localImg('/images/projects/lifestyle-2.jpg'),
+  aboutCtaImage: localImg('/images/projects/editorial-cover.jpg'),
   aboutSectionLabel: 'About Sam',
   aboutBio:
     "Sam Goodwin is a freelance photographer and creative originally from Aotearoa, now based in Christchurch. Through Sgoodwin Photography, he specialises in landscape, seascape, astro, event, and branding photography, capturing emotionally driven imagery inspired by nature, nightlife, and atmosphere.\nHis work has been recognised through Australasia's Top Emerging Photographers Awards (2023 & 2024), The Landscape Awards (2025), and multiple publications including Art/Edit+ Interior Design Magazine.",
@@ -71,19 +67,19 @@ export const homepagePortfolioTeasers = [
     category: 'corporate',
     title: 'Corporate',
     description: 'Professional. Authentic. Impactful.',
-    image: img('1497366216548-37526070297c'),
+    image: localImg('/images/projects/fitness-cover.jpg'),
   },
   {
     category: 'events',
     title: 'Events',
     description: 'Real moments. Real connections.',
-    image: img('1511795409834-ef04bbd61622'),
+    image: localImg('/images/projects/festival-cover.jpg'),
   },
   {
     category: 'landscapes',
     title: 'Landscapes',
     description: 'Nature. Perspective. Inspiration.',
-    image: img('1470071459604-3b5ec3a7fe05'),
+    image: localImg('/images/portfolio/coastal-sunrise.jpg'),
   },
 ]
 
@@ -183,7 +179,7 @@ export const fallbackJournalPosts = [
     date: '2026-02-14',
     title: 'Chasing Light at Castlepoint',
     excerpt: 'Three days, two sunrises and one storm worth waiting for.',
-    coverImage: img('1476673160081-cf065607f449'),
+    coverImage: localImg('/images/portfolio/coastal-sunrise.jpg'),
     body: null,
   },
   {
@@ -192,7 +188,7 @@ export const fallbackJournalPosts = [
     date: '2026-01-18',
     title: 'Notes on Corporate Portraiture',
     excerpt: 'Why small talk matters more than your lens choice.',
-    coverImage: img('1508186225823-0963cf9ab0de'),
+    coverImage: localImg('/images/projects/fitness-cover.jpg'),
     body: null,
   },
   {
@@ -201,7 +197,7 @@ export const fallbackJournalPosts = [
     date: '2025-12-09',
     title: 'A Weekend in the Wairarapa',
     excerpt: 'Field notes from a slow, deliberate trip with one camera.',
-    coverImage: img('1547471080-7cc2caa01a7e'),
+    coverImage: localImg('/images/projects/lifestyle-3.jpg'),
     body: null,
   },
   {
@@ -210,7 +206,7 @@ export const fallbackJournalPosts = [
     date: '2025-11-05',
     title: 'Quiet Frames',
     excerpt: 'On the discipline of leaving the camera in the bag.',
-    coverImage: img('1502920917128-1aa500764cbd'),
+    coverImage: localImg('/images/projects/lifestyle-1.jpg'),
     body: null,
   },
 ]
