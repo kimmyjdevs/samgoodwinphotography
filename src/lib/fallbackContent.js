@@ -104,7 +104,7 @@ export const fallbackPortfolioItems = [
   { _id: 'p12', title: 'Coastline From Above', category: 'aerial', order: 12, image: img('1501594907352-04cda38ebc29') },
 ]
 
-export const projectCategories = ['all', 'corporate', 'events', 'landscapes', 'branding']
+export const projectCategories = ['all', 'corporate', 'events', 'landscapes', 'branding', 'lifestyle']
 
 export const fallbackProjects = [
   {
@@ -136,6 +136,12 @@ export const fallbackProjects = [
       localImg('/images/projects/festival-6.jpg'),
       localImg('/images/projects/festival-7.jpg'),
       localImg('/images/projects/festival-8.jpg'),
+      localImg('/images/projects/festival-9.jpg'),
+      localImg('/images/projects/festival-10.jpg'),
+      localImg('/images/projects/festival-11.jpg'),
+      localImg('/images/projects/festival-12.jpg'),
+      localImg('/images/projects/festival-13.jpg'),
+      localImg('/images/projects/festival-14.jpg'),
     ],
   },
   {
@@ -164,6 +170,18 @@ export const fallbackProjects = [
       localImg('/images/projects/editorial-1.jpg'),
       localImg('/images/projects/editorial-2.jpg'),
       localImg('/images/projects/editorial-3.jpg'),
+    ],
+  },
+  {
+    _id: 'pr6',
+    title: 'Life, Unscripted',
+    category: 'lifestyle',
+    description: 'Off-duty moments — candid portraits, real people, and glimpses between the planned shots.',
+    coverImage: localImg('/images/projects/lifestyle-cover.jpg'),
+    gallery: [
+      localImg('/images/projects/lifestyle-1.jpg'),
+      localImg('/images/projects/lifestyle-2.jpg'),
+      localImg('/images/projects/lifestyle-3.jpg'),
     ],
   },
 ]

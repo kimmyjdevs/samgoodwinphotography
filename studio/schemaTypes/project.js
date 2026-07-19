@@ -14,6 +14,7 @@ export default {
           { title: 'Events', value: 'events' },
           { title: 'Landscapes', value: 'landscapes' },
           { title: 'Branding', value: 'branding' },
+          { title: 'Lifestyle', value: 'lifestyle' },
         ],
       },
       validation: (Rule) => Rule.required(),
