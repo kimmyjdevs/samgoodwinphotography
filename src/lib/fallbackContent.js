@@ -126,7 +126,7 @@ export const fallbackProjects = [
   {
     _id: 'pr3',
     title: 'Studio Fitness Portraits',
-    category: 'corporate',
+    category: 'branding',
     description: 'Clean studio portraiture for an athletic apparel campaign.',
     coverImage: localImg('/images/projects/fitness-cover.jpg'),
     gallery: [localImg('/images/projects/fitness-1.jpg'), localImg('/images/projects/fitness-2.jpg')],
