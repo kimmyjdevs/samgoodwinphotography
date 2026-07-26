@@ -11,6 +11,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Specificity bump: `.container`'s shorthand `padding: 0 var(--space-md)`
+   has equal specificity to a single class and zeroes vertical padding — as
+   the later rule in the bundled stylesheet it was silently winning and
+   collapsing the header down to the logo's bare height with no breathing
+   room. Scoping to the parent avoids relying on rule order. */
+.site-header .site-header__inner {
   padding-top: var(--space-sm);
   padding-bottom: var(--space-sm);
 }
