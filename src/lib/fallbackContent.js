@@ -64,10 +64,10 @@ export const fallbackSiteSettings = {
 // define one) — they're presentational and just link through to /portfolio.
 export const homepagePortfolioTeasers = [
   {
-    category: 'corporate',
-    title: 'Corporate',
-    description: 'Professional. Authentic. Impactful.',
-    image: localImg('/images/projects/fitness-cover.jpg'),
+    category: 'branding',
+    title: 'Branding',
+    description: 'Vision. Identity. Impact.',
+    image: localImg('/images/projects/tinytatts-cover.jpg'),
   },
   {
     category: 'events',
@@ -83,7 +83,7 @@ export const homepagePortfolioTeasers = [
   },
 ]
 
-export const projectCategories = ['all', 'corporate', 'events', 'landscapes', 'branding', 'lifestyle']
+export const projectCategories = ['all', 'events', 'landscapes', 'branding', 'lifestyle']
 
 export const fallbackProjects = [
   {
