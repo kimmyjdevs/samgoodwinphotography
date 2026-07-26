@@ -50,7 +50,7 @@ export const fallbackSiteSettings = {
   aboutEquipment: 'Professional Mirrorless System',
   aboutPublished: 'Art/Edit+ Interior Design Magazine, Sunshine Coast Photo Sessions',
 
-  contactLocation: 'Queensland, Australia',
+  contactLocation: 'Christchurch, New Zealand',
   contactEmail: 'sam@samgoodwin.co.nz',
   availableFor: 'New Zealand',
 

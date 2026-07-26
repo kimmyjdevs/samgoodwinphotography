@@ -63,9 +63,9 @@ export default function Header() {
           <a href={settings.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram">
             <InstagramIcon width={18} height={18} />
           </a>
-          <a href={`mailto:${settings.contactEmail}`} aria-label="Email">
+          <NavLink to="/contact" aria-label="Contact">
             <MailIcon width={18} height={18} />
-          </a>
+          </NavLink>
         </div>
       </div>
     </header>
