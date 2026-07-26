@@ -54,7 +54,7 @@ export const fallbackSiteSettings = {
   contactEmail: 'sam@samgoodwin.co.nz',
   availableFor: 'New Zealand',
 
-  instagramUrl: 'https://www.instagram.com/sgoodwin.media/',
+  instagramUrl: 'https://www.instagram.com/samgoodwinnz/',
   facebookUrl: '',
   linkedinUrl: '',
 }
