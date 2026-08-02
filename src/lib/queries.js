@@ -5,6 +5,11 @@ const IMAGE_PROJECTION = 'asset->{url}'
 
 export const SITE_SETTINGS_QUERY = /* groq */ `
 *[_type == "siteSettings"][0]{
+  siteLogo{${IMAGE_PROJECTION}},
+  navAboutLabel,
+  navPortfolioLabel,
+  navJournalLabel,
+  navContactLabel,
   heroEyebrow,
   heroTitle,
   heroSubtitle,
@@ -13,6 +18,7 @@ export const SITE_SETTINGS_QUERY = /* groq */ `
   homepageAboutHeading,
   homepageAboutText,
   homepageAboutImage{${IMAGE_PROJECTION}},
+  homepageTeasers[]{title, description, image{${IMAGE_PROJECTION}}},
   aboutHeroHeading,
   aboutHeroIntro,
   aboutHeroImage{${IMAGE_PROJECTION}},

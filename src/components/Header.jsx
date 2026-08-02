@@ -6,17 +6,17 @@ import { fallbackSiteSettings } from '../lib/fallbackContent'
 import { InstagramIcon, MailIcon } from './icons'
 import './Header.css'
 
-const NAV_LINKS = [
-  { label: 'About', to: '/about' },
-  { label: 'Portfolio', to: '/portfolio' },
-  { label: 'Journal', to: '/journal' },
-  { label: 'Contact', to: '/contact' },
-]
-
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const { data: settings } = useSanityData(SITE_SETTINGS_QUERY, fallbackSiteSettings)
+
+  const navLinks = [
+    { label: settings.navAboutLabel, to: '/about' },
+    { label: settings.navPortfolioLabel, to: '/portfolio' },
+    { label: settings.navJournalLabel, to: '/journal' },
+    { label: settings.navContactLabel, to: '/contact' },
+  ]
 
   // Close the mobile menu on navigation so it never gets left open after a link click.
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container site-header__inner">
         <NavLink to="/" className="site-header__logo">
-          <img src="/images/logo/logo-white.png" alt="Sam Goodwin Photography" />
+          <img src={settings.siteLogo?.asset?.url} alt="Sam Goodwin Photography" />
         </NavLink>
 
         <button
@@ -46,7 +46,7 @@ export default function Header() {
           className={'site-header__nav' + (menuOpen ? ' site-header__nav--open' : '')}
           aria-label="Primary"
         >
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}

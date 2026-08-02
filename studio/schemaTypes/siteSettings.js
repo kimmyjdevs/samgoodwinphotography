@@ -4,6 +4,13 @@ export default {
   type: 'document',
   __experimental_formPreviewTitle: false,
   fields: [
+    { name: 'siteLogo', title: 'Site Logo', type: 'image' },
+
+    { name: 'navAboutLabel', title: 'Nav Label: About', type: 'string' },
+    { name: 'navPortfolioLabel', title: 'Nav Label: Portfolio', type: 'string' },
+    { name: 'navJournalLabel', title: 'Nav Label: Journal', type: 'string' },
+    { name: 'navContactLabel', title: 'Nav Label: Contact', type: 'string' },
+
     { name: 'heroEyebrow', title: 'Hero Eyebrow', type: 'string' },
     { name: 'heroTitle', title: 'Hero Title', type: 'string' },
     { name: 'heroSubtitle', title: 'Hero Subtitle', type: 'string' },
@@ -13,6 +20,27 @@ export default {
     { name: 'homepageAboutHeading', title: 'Homepage About Heading', type: 'string' },
     { name: 'homepageAboutText', title: 'Homepage About Text', type: 'text' },
     { name: 'homepageAboutImage', title: 'Homepage About Image', type: 'image', options: { hotspot: true } },
+
+    {
+      name: 'homepageTeasers',
+      title: 'Homepage Teaser Cards',
+      description: 'The row of cards just under the homepage hero. Add, remove or reorder as needed.',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'teaser',
+          fields: [
+            { name: 'title', title: 'Title', type: 'string' },
+            { name: 'description', title: 'Description', type: 'string' },
+            { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
+          ],
+          preview: {
+            select: { title: 'title', media: 'image' },
+          },
+        },
+      ],
+    },
 
     { name: 'aboutHeroHeading', title: 'About Hero Heading', type: 'string' },
     { name: 'aboutHeroIntro', title: 'About Hero Intro', type: 'text' },

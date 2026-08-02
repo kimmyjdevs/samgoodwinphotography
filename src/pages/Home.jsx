@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSanityData } from '../hooks/useSanityData'
 import { SITE_SETTINGS_QUERY } from '../lib/queries'
-import { fallbackSiteSettings, homepagePortfolioTeasers } from '../lib/fallbackContent'
+import { fallbackSiteSettings } from '../lib/fallbackContent'
 import SEO from '../components/SEO'
 import './Home.css'
 
@@ -29,8 +29,8 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="teaser-grid">
-            {homepagePortfolioTeasers.map((teaser) => (
-              <Link to="/portfolio" key={teaser.category} className="teaser-card">
+            {settings.homepageTeasers.map((teaser) => (
+              <Link to="/portfolio" key={teaser.title} className="teaser-card">
                 <div className="teaser-card__media">
                   <img src={teaser.image?.asset?.url} alt={teaser.title} loading="lazy" />
                 </div>

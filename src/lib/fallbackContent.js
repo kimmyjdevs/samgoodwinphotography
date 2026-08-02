@@ -13,6 +13,13 @@ function localImg(path) {
 }
 
 export const fallbackSiteSettings = {
+  siteLogo: localImg('/images/logo/logo-white.png'),
+
+  navAboutLabel: 'About',
+  navPortfolioLabel: 'Portfolio',
+  navJournalLabel: 'Journal',
+  navContactLabel: 'Contact',
+
   heroEyebrow: 'Landscape · Seascape · Astro · Events',
   heroTitle: 'Sam Goodwin',
   heroSubtitle: 'Photography',
@@ -23,6 +30,24 @@ export const fallbackSiteSettings = {
   homepageAboutText:
     'Sam Goodwin is a freelance photographer specialising in landscape, seascape, astro, event and branding photography — capturing emotionally driven imagery inspired by nature, nightlife and atmosphere.',
   homepageAboutImage: localImg('/images/about/portrait.jpg'),
+
+  homepageTeasers: [
+    {
+      title: 'Branding',
+      description: 'Vision. Identity. Impact.',
+      image: localImg('/images/projects/tinytatts-cover.jpg'),
+    },
+    {
+      title: 'Events',
+      description: 'Real moments. Real connections.',
+      image: localImg('/images/projects/festival-cover.jpg'),
+    },
+    {
+      title: 'Landscapes',
+      description: 'Nature. Perspective. Inspiration.',
+      image: localImg('/images/portfolio/coastal-sunrise.jpg'),
+    },
+  ],
 
   aboutHeroHeading: 'Stories Are Everywhere',
   aboutHeroIntro:
@@ -58,30 +83,6 @@ export const fallbackSiteSettings = {
   facebookUrl: '',
   linkedinUrl: '',
 }
-
-// Static teaser imagery for the three homepage portfolio cards. There's no
-// dedicated Sanity field for these (the brief's siteSettings schema doesn't
-// define one) — they're presentational and just link through to /portfolio.
-export const homepagePortfolioTeasers = [
-  {
-    category: 'branding',
-    title: 'Branding',
-    description: 'Vision. Identity. Impact.',
-    image: localImg('/images/projects/tinytatts-cover.jpg'),
-  },
-  {
-    category: 'events',
-    title: 'Events',
-    description: 'Real moments. Real connections.',
-    image: localImg('/images/projects/festival-cover.jpg'),
-  },
-  {
-    category: 'landscapes',
-    title: 'Landscapes',
-    description: 'Nature. Perspective. Inspiration.',
-    image: localImg('/images/portfolio/coastal-sunrise.jpg'),
-  },
-]
 
 export const projectCategories = ['all', 'events', 'landscapes', 'branding', 'lifestyle']
 
