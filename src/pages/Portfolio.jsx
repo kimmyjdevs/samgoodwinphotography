@@ -5,6 +5,7 @@ import { PROJECTS_QUERY } from '../lib/queries'
 import { fallbackProjects, projectCategories } from '../lib/fallbackContent'
 import FilterTabs from '../components/FilterTabs'
 import ProjectCard from '../components/ProjectCard'
+import Lightbox from '../components/Lightbox'
 import SEO from '../components/SEO'
 import './Portfolio.css'
 
@@ -16,6 +17,7 @@ const FILTER_OPTIONS = projectCategories.map((value) => ({
 export default function Portfolio() {
   const { data: projects } = useSanityData(PROJECTS_QUERY, fallbackProjects)
   const [active, setActive] = useState('all')
+  const [lightboxProject, setLightboxProject] = useState(null)
 
   const filtered = useMemo(
     () => (active === 'all' ? projects : projects.filter((project) => project.category === active)),
@@ -42,7 +44,7 @@ export default function Portfolio() {
         ) : (
           <div className="portfolio-grid">
             {filtered.map((project) => (
-              <ProjectCard key={project._id} project={project} />
+              <ProjectCard key={project._id} project={project} onClick={() => setLightboxProject(project)} />
             ))}
           </div>
         )}
@@ -53,6 +55,14 @@ export default function Portfolio() {
           </Link>
         </div>
       </div>
+
+      {lightboxProject && (
+        <Lightbox
+          images={[lightboxProject.coverImage, ...(lightboxProject.gallery || [])].filter(Boolean)}
+          title={lightboxProject.title}
+          onClose={() => setLightboxProject(null)}
+        />
+      )}
     </div>
   )
 }

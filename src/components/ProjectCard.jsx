@@ -1,8 +1,19 @@
 import './ProjectCard.css'
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onClick }) {
   return (
-    <article className="project-card">
+    <article
+      className="project-card"
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault()
+          onClick?.()
+        }
+      }}
+    >
       <div className="project-card__media">
         <img src={project.coverImage?.asset?.url} alt={project.title} loading="lazy" />
       </div>

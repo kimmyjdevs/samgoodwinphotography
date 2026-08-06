@@ -76,3 +76,27 @@ export function MailIcon(props) {
     </svg>
   )
 }
+
+export function ChevronLeftIcon(props) {
+  return (
+    <svg {...BASE_PROPS} {...props}>
+      <path d="M15 5 8 12l7 7" />
+    </svg>
+  )
+}
+
+export function ChevronRightIcon(props) {
+  return (
+    <svg {...BASE_PROPS} {...props}>
+      <path d="m9 5 7 7-7 7" />
+    </svg>
+  )
+}
+
+export function CloseIcon(props) {
+  return (
+    <svg {...BASE_PROPS} {...props}>
+      <path d="m5 5 14 14M19 5 5 19" />
+    </svg>
+  )
+}
